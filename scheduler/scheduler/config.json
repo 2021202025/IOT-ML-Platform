@@ -1,0 +1,22 @@
+{
+    "kafka_ip": "10.206.186.65",
+    "kafka_port": "9092",
+    "mongo_server": "10.206.186.65:27017",
+    "sensor_reg_api": "http://10.206.186.65:7005/",
+    "deployer_master": "http://10.206.186.65:9999/",
+    "load_balancer": "http://localhost:9898/",
+    "platform_api": "http://10.206.186.65:5000/",
+    "scheduler": "http://10.206.186.65:8210/",
+    "model_req_handler": "http://10.206.186.65:5050/",
+    "workers": [
+        {
+            "name": "ubuntu",
+            "ip": "10.206.186.45"
+        },
+        {
+            "name": "ubuntu",
+            "ip": "10.206.186.215"
+        }
+    ],
+    "frequency": "10"
+}

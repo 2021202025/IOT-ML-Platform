@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "secret_key": {
+      "type": "string"
+    },
+    "root_dir": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tensorflow_support": {
+      "type": "string"
+    },
+    "functions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "module_path": {
+              "type": "string"
+            },
+            "function_name": {
+              "type": "string"
+            },
+            "function_input_type": {
+              "type": "string"
+            },
+            "output_type": {
+              "type": "string"
+            },
+            "api_endpoint": {
+              "type": "string"
+            },
+            "methods": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "module_path",
+            "function_name",
+            "function_input_type",
+            "output_type",
+            "api_endpoint",
+            "methods"
+          ]
+        }
+      ]
+    },
+    "requirements": {
+      "type": "string"
+    },
+    "readme": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "version",
+    "secret_key",
+    "root_dir",
+    "name",
+    "tensorflow_support",
+    "functions",
+    "requirements",
+    "readme"
+  ]
+}

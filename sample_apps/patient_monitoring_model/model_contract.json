@@ -1,0 +1,89 @@
+{
+    "version": "1.0.0",
+    "secret_key": "patient_monitoring_model_secret",
+    "root_dir": "patient_monitoring",
+    "name": "Patient Monitoring",
+    "tensorflow_support":"yes",
+    "functions": [
+        {
+            "module_path": "patient_monitoring.diabetes_checker.diabetes_checker",
+            "function_name": "predict_diabetes",
+            "function_input_type": "dict",
+            "output_type": "string",
+            "api_endpoint": "diabetes-checker",
+            "methods": [
+                {
+                    "method_type": "POST",
+                    "input_type": "json",
+                    "input_schema": {
+                        "type": "object",
+                        "properties": [
+                            {
+                                "name": "glucose",
+                                "type": "float"
+                            },
+                            {
+                                "name": "insuline",
+                                "type": "float"
+                            },
+                            {
+                                "name": "age",
+                                "type": "number"
+                            },
+                            {
+                                "name": "bmi",
+                                "type": "float"
+                            }
+                        ]
+                    },
+                    "response": {
+                        "type": "string",
+                        "enum": [
+                            "true",
+                            "false"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "module_path": "patient_monitoring.vitals_checker.vitals_checker",
+            "function_name": "predict_condition",
+            "function_input_type": "dict",
+            "output_type": "string",
+            "api_endpoint": "vitals-checker",
+            "methods": [
+                {
+                    "method_type": "POST",
+                    "input_type": "json",
+                    "input_schema": {
+                        "type": "object",
+                        "properties": [
+                            {
+                                "name": "spo2",
+                                "type": "int"
+                            },
+                            {
+                                "name": "pulse",
+                                "type": "int"
+                            },
+                            {
+                                "name": "temperature",
+                                "type": "int"
+                            }
+                        ]
+                    },
+                    "response": {
+                        "type": "string",
+                        "enum": [
+                            "true",
+                            "false"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "requirements": "patient_monitoring/requirements.txt",
+    "readme": "patient_monitoring/README.md"
+}

@@ -1,0 +1,19 @@
+{
+    "master": {
+        "user": "ubuntu",
+        "name": "master",
+        "ip": "10.139.212.128",
+        "passwd": "asxz",
+        "location": "northeurope"
+    },
+    "workers": [
+        {
+            "user": "ubuntu",
+            "name": "worker1",
+            "ip": "10.139.212.207",
+            "passwd": "asxz",
+            "location": "northeurope"
+        }
+    ],
+    "subscription_id": ""
+}

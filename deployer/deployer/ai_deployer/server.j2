@@ -1,0 +1,20 @@
+from flask import Flask, request
+app = Flask(__name__)
+@app.route('/')
+def index():
+    return '<h1>{{contract.name}} is running!</h1>'
+@app.route('/health')
+def health():
+    return '<h1>{{contract.name}} is healthy!</h1>', 200
+{% for function in contract.functions %}
+@app.route('/{{function.api_endpoint}}', methods=['GET', 'POST'])
+def {{function.function_name}}():
+    from {{function.module_path}} import {{function.function_name}}
+    {% for method in function.methods %}
+    if request.method == '{{method.method_type}}':
+        data = request.data
+        return {{function.function_name}}(data)    
+    {% endfor %}
+{% endfor %}
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)
